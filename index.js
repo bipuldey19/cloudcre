@@ -9,7 +9,7 @@ var cc_history = JSON.parse(localStorage["cc_history"] || "[]");
 
 async function getTrending() {
   async function get() {
-    const f = await fetch("https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=PH", {
+    const f = await fetch("https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=BN", {
       headers: {
         authorization: `Bearer ${await getToken()}`
       }
@@ -61,7 +61,7 @@ async function getToken() {
 }
 
 async function getSearch(keyword, first) {
-  const f = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(keyword)}&market=PH&limit=10&offset=0&type=track`, {
+  const f = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(keyword)}&market=BN&limit=10&offset=0&type=track`, {
     headers: {
       authorization: `Bearer ${await getToken()}`
     }
@@ -191,13 +191,13 @@ function openTrackURL(index) {
 }
 
 async function getTrack(id) {
-  const f = await fetch(`https://api.spotify.com/v1/tracks/${id}?market=PH`, {
+  const f = await fetch(`https://api.spotify.com/v1/tracks/${id}?market=BN`, {
     headers: {
       authorization: `Bearer ${await getToken()}`
     }
   });
   const t = await f.json();
-  const p = await fetch(`https://api.spotify.com/v1/albums/${t.album.id}?market=PH`, {
+  const p = await fetch(`https://api.spotify.com/v1/albums/${t.album.id}?market=BN`, {
     headers: {
       authorization: `Bearer ${await getToken()}`
     }
